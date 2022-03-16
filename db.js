@@ -23,10 +23,39 @@ const Counter = sequelize.define("Counter", {
 // 数据库初始化方法
 async function init() {
   await Counter.sync({ alter: true });
+  await UserInfo.sync({ alter: true });
 }
 
+const UserInfo = sequelize.define("UserInfo", {
+  name: {
+    type: DataTypes.CHAR,
+    allowNull: false,
+    defaultValue: ''
+  },
+  age: {
+    type: DataTypes.CHAR,
+    allowNull: false,
+    defaultValue: ''
+  },
+  phone: {
+    type: DataTypes.CHAR,
+    allowNull: false,
+    defaultValue: ''
+  },
+  class: {
+    type: DataTypes.CHAR,
+    allowNull: false,
+    defaultValue: ''
+  },
+  major: {
+    type: DataTypes.CHAR,
+    allowNull: false,
+    defaultValue: ''
+  },
+})
 // 导出初始化方法和模型
 module.exports = {
   init,
   Counter,
+  UserInfo
 };

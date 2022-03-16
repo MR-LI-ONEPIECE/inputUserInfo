@@ -52,8 +52,9 @@ app.get("/api/wx_openid", async (req, res) => {
 // 提交用户信息
 app.post("/api/userInfo", async (req, res) => {
   const result = req.body;
+  console.log(result)
   try {
-    UserInfo.create(result)
+    await UserInfo.create(result)
   } catch (error) {
     res.send({
       code: 400,
